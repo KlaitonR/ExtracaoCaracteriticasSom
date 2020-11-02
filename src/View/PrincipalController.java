@@ -3,9 +3,7 @@ package View;
 import java.io.File;
 import java.io.IOException;
 import java.text.DecimalFormat;
-
 import javax.sound.sampled.UnsupportedAudioFileException;
-
 import ExtratorDeCaracteristicas.ExtraiCaracteristicasSom;
 import algoritmos.PerceptronMultiCamadas;
 import javafx.fxml.FXML;
@@ -16,9 +14,11 @@ import util.Player;
 public class PrincipalController {
 	
 	@FXML Label prPerceptronMultilayerNetwork;
-	File f;
 	
-	private double [] c = {0,0,0,0,0,0};
+	File f;
+	// static DecimalFormat df = new DecimalFormat("##0.0000");
+	
+	private double [] c = {0,0};
 	
 	private DecimalFormat df = new DecimalFormat("##0.0000");
 	
@@ -32,7 +32,7 @@ public class PrincipalController {
 	public void perceptronMultiCamdas() {
 		
 		double [] pmn = PerceptronMultiCamadas.perceptronMultilayerNetwork(c);
-		prPerceptronMultilayerNetwork.setText("Probabilidade de ser Cachorro: " + df.format(pmn[0]*100)+ "% \n" +
+		prPerceptronMultilayerNetwork.setText("Probabilidade de ser Cachorro: " + df.format(pmn[0]*100)+ "%" +
 				"Probabilidade de ser gato: " + df.format(pmn[1]*100)+ "%");
 	}
 	
