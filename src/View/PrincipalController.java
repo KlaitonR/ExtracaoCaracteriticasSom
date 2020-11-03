@@ -16,10 +16,7 @@ public class PrincipalController {
 	@FXML Label prPerceptronMultilayerNetwork;
 	
 	File f;
-	// static DecimalFormat df = new DecimalFormat("##0.0000");
-	
 	private double [] c = {0,0};
-	
 	private DecimalFormat df = new DecimalFormat("##0.0000");
 	
 	//extrair arff
@@ -41,8 +38,8 @@ public class PrincipalController {
 		
 		f = buscaSom();
 		if(f != null) {
-//			double[] caracteristicas = ExtraiCaracteristicasSom.extractAmplitudeFromFile(f);
-//			c = caracteristicas;
+			double[] caracteristicas = ExtraiCaracteristicasSom.extractAmplitudeFromFile(f);
+			c = caracteristicas;
 		}
 	}
 	
