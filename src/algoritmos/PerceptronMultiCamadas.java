@@ -23,7 +23,7 @@ public class PerceptronMultiCamadas {
 			mlp.setLearningRate(0.3);
 			mlp.setMomentum(0.2);
 			mlp.setTrainingTime(20000);
-			mlp.setHiddenLayers("a, a");
+			mlp.setHiddenLayers("a,a");
 			mlp.buildClassifier(train);
 			
 			weka.classifiers.functions.MultilayerPerceptron network = new weka.classifiers.functions.MultilayerPerceptron();

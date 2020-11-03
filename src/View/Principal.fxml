@@ -54,16 +54,34 @@
                         </Button>
                      </children>
                   </HBox>
-                  <Label text="Caracteristicas cachorro:">
-                     <VBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label text="Caracteristicas gatos: ">
-                     <VBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </VBox.margin>
-                  </Label>
+                  <HBox>
+                     <children>
+                        <Label text="Caracteristicas cachorro: ">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="carCachorro">
+                           <HBox.margin>
+                              <Insets bottom="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Label text="Caracteristicas gato: ">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="carGato">
+                           <HBox.margin>
+                              <Insets bottom="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
                   <Accordion>
                     <panes>
                       <TitledPane animated="false" prefHeight="114.0" prefWidth="688.0" text="Perceptron Multilayer Network">
@@ -80,12 +98,12 @@
                                     </Button>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label text="Classe: ">
+                                          <Label text="Classe">
                                              <HBox.margin>
                                                 <Insets bottom="10.0" left="10.0" top="10.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <Label fx:id="prPerceptronMultilayerNetwork">
+                                          <Label fx:id="classe">
                                              <HBox.margin>
                                                 <Insets bottom="10.0" right="10.0" top="10.0" />
                                              </HBox.margin>

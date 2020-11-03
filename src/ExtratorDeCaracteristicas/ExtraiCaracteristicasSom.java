@@ -65,14 +65,15 @@ public class ExtraiCaracteristicasSom {
          File outputfile = new File(file.getName()+".png");
          ImageIO.write(theImage, "png", outputfile);
 
-     } catch (IOException e) {
-         // TODO Auto-generated catch block
-         e.printStackTrace();
-     }
+	     } catch (IOException e) {
+	         // TODO Auto-generated catch block
+	         e.printStackTrace();
+	     }
 	 }
      
      public static double[] extractAmplitudeFromFile(File wavFile) {   
     	 
+    	 getFile(wavFile);
     	 double[] caracteristicas = new double[3];
     	 double amplitude_cachorro = 0;
  		 double amplitude_gato = 0;

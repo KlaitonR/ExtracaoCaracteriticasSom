@@ -13,7 +13,9 @@ import util.Player;
 
 public class PrincipalController {
 	
-	@FXML Label prPerceptronMultilayerNetwork;
+	@FXML Label classe;
+	@FXML Label carCachorro;
+	@FXML Label carGato;
 	
 	File f;
 	private double [] c = {0,0};
@@ -29,8 +31,8 @@ public class PrincipalController {
 	public void perceptronMultiCamdas() {
 		
 		double [] pmn = PerceptronMultiCamadas.perceptronMultilayerNetwork(c);
-		prPerceptronMultilayerNetwork.setText("Probabilidade de ser Cachorro: " + df.format(pmn[0]*100)+ "%" +
-				"Probabilidade de ser gato: " + df.format(pmn[1]*100)+ "%");
+		classe.setText("Probabilidade de ser Cachorro: "+ df.format(pmn[0]*100) + "%" +
+				"Probabilidade de ser gato: "+ df.format(pmn[1]*100) + "%");
 	}
 	
 	@FXML
@@ -39,6 +41,8 @@ public class PrincipalController {
 		f = buscaSom();
 		if(f != null) {
 			double[] caracteristicas = ExtraiCaracteristicasSom.extractAmplitudeFromFile(f);
+			carCachorro.setText(String.valueOf(df.format(caracteristicas[0])) + " amplitude média");
+			carGato.setText(String.valueOf(df.format(caracteristicas[1])) + " amplitude média");
 			c = caracteristicas;
 		}
 	}
