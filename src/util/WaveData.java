@@ -10,6 +10,7 @@ import java.util.Arrays;
 	public class WaveData {  
 		
 		private byte[] entireFileData;
+		public String info = "";
 
 	    //SR = sampling rate
 	    public double getSR(){
@@ -42,14 +43,21 @@ import java.util.Arrays;
 
 	        //extract Bit Per Second (BPS/Bit depth)
 	        int BPS = entireFileData[34];
-
-	        System.out.println("---------------------------------------------------");
-	        System.out.println("File path:          " + filepath);
-	        System.out.println("File format:        " + format);
-	        System.out.println("Number of channels: " + noOfChannels_str);
-	        System.out.println("Sampling rate:      " + SR);
-	        System.out.println("Bit depth:          " + BPS);
-	        System.out.println("---------------------------------------------------");
+	        
+	        info += "File path:          " + filepath + "\n" +
+	        		"File format:        " + format + "\n" +
+					"Number of channels: " + noOfChannels_str + "\n" +
+					"Sampling rate:      " + SR + "\n" +
+					"Bit depth:          " + BPS;
+					
+				
+//	        System.out.println("---------------------------------------------------");
+//	        System.out.println("File path:          " + filepath);
+//	        System.out.println("File format:        " + format);
+//	        System.out.println("Number of channels: " + noOfChannels_str);
+//	        System.out.println("Sampling rate:      " + SR);
+//	        System.out.println("Bit depth:          " + BPS);
+//	        System.out.println("---------------------------------------------------");
 
 	        }
 	    }

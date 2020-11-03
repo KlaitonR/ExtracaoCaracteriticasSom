@@ -16,6 +16,7 @@ public class PrincipalController {
 	@FXML Label classe;
 	@FXML Label carCachorro;
 	@FXML Label carGato;
+	@FXML Label info;
 	
 	File f;
 	private double [] c = {0,0};
@@ -32,7 +33,7 @@ public class PrincipalController {
 		
 		double [] pmn = PerceptronMultiCamadas.perceptronMultilayerNetwork(c);
 		classe.setText("Probabilidade de ser Cachorro: "+ df.format(pmn[0]*100) + "%" +
-				"Probabilidade de ser gato: "+ df.format(pmn[1]*100) + "%");
+				"  -  Probabilidade de ser gato: "+ df.format(pmn[1]*100) + "%");
 	}
 	
 	@FXML
@@ -41,8 +42,9 @@ public class PrincipalController {
 		f = buscaSom();
 		if(f != null) {
 			double[] caracteristicas = ExtraiCaracteristicasSom.extractAmplitudeFromFile(f);
-			carCachorro.setText(String.valueOf(df.format(caracteristicas[0])) + " amplitude média");
-			carGato.setText(String.valueOf(df.format(caracteristicas[1])) + " amplitude média");
+			carCachorro.setText(String.valueOf(df.format(caracteristicas[0])) + " (amplitude média)");
+			carGato.setText(String.valueOf(df.format(caracteristicas[1])) + " (amplitude média)");
+			info.setText(ExtraiCaracteristicasSom.inf);
 			c = caracteristicas;
 		}
 	}

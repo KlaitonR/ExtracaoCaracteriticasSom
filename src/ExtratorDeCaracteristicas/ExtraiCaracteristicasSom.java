@@ -11,7 +11,6 @@ import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 
-
 import util.WaveData;
 
 public class ExtraiCaracteristicasSom { 
@@ -25,9 +24,14 @@ public class ExtraiCaracteristicasSom {
 	 static double durationSec;  
 	 static double durationMSec;
 	 static File file;
+	 public static String inf;
 	 
 	 public static void getFile(File f) {
 		 file = f;
+	 }
+	 
+	 public static void getInfo(String info) {
+		 inf = info;
 	 }
 	 
 	 public static Color getColor(double power) {
@@ -80,16 +84,17 @@ public class ExtraiCaracteristicasSom {
     	 
     	 try{
 	    	  //get raw double array containing .WAV data
-	         WaveData audioTest = new WaveData(file.getPath(), false); //true para exibir informações do arquivo
+	         WaveData audioTest = new WaveData(file.getPath(), true); //true para exibir informações do arquivo
 	         double[] rawData = audioTest.getByteArray();
 	         int length = rawData.length;
+	         getInfo(audioTest.info);
 	
 	         //initialize parameters for FFT
 	         int WS = 2048; //WS = window size
 	         int OF = 8;    //OF = overlap factor
 	         int windowStep = WS/OF;
 	
-	         //calculate FFT parameters
+//	         //calculate FFT parameters
 //	         double SR = audioTest.getSR();
 //	         double time_resolution = WS/SR;
 //	         double frequency_resolution = SR/WS;
@@ -128,16 +133,9 @@ public class ExtraiCaracteristicasSom {
 	                 }
 	                 else{
 	                	 plotData[i][nY-j-1] = 10 * Math.log10(Math.max(amp_square,threshold));
-//	                	 plotData[i][nY-j-1] = 10 * Math.log10(amp_square);
 	                 }
 	
 	                 //find MAX and MIN amplitude
-	                 if (plotData[i][j] > maxAmp)
-	                     maxAmp = plotData[i][j];
-	                 else if (plotData[i][j] < minAmp)
-	                     minAmp = plotData[i][j];
-	                 
-	                 //find media amplitude
 	                 if (plotData[i][j] > maxAmp)
 	                     maxAmp = plotData[i][j];
 	                 else if (plotData[i][j] < minAmp)
@@ -148,42 +146,41 @@ public class ExtraiCaracteristicasSom {
 	             }
 	         }
 	
-	         System.out.println("---------------------------------------------------");
-	         System.out.println("Maximum amplitude: " + maxAmp);
-	         System.out.println("Minimum amplitude: " + minAmp);
-	         System.out.println("---------------------------------------------------");
+//	         System.out.println("---------------------------------------------------");
+//	         System.out.println("Maximum amplitude: " + maxAmp);
+//	         System.out.println("Minimum amplitude: " + minAmp);
+//	         System.out.println("---------------------------------------------------");
 	
 	         amplitudeMedia = amplitudeMedia/plotData.length;
 	         
-	        
-	         System.out.println("Media Amplitude: " + amplitudeMedia);
+//	         System.out.println("Media Amplitude: " + amplitudeMedia);
 	         
-	         if(amplitudeMedia>28000 && file.getName().charAt(0)=='d') {
+//	         if(amplitudeMedia>28000 && file.getName().charAt(0) =='d') {
+//	        	 amplitude_cachorro = amplitudeMedia; 
+//	         }else if (amplitudeMedia>28000 && file.getName().charAt(0) =='c'){
+//	        	 amplitude_cachorro = amplitudeMedia;
+//	        	 amplitude_gato = amplitudeMedia;
+//	         }
+//	         
+//	         if(amplitudeMedia<28000 && file.getName().charAt(0) =='c') {
+//	        	 amplitude_gato = amplitudeMedia;
+//	         }else if (amplitudeMedia<28000 && file.getName().charAt(0) =='d'){
+//	        	 amplitude_cachorro = amplitudeMedia;
+//	        	 amplitude_gato = amplitudeMedia;
+//	         }
+	         
+	         if(amplitudeMedia>28000) 
 	        	 amplitude_cachorro = amplitudeMedia; 
-	         }else if (amplitudeMedia>28000 && file.getName().charAt(0)=='c'){
-	        	 amplitude_cachorro = amplitudeMedia;
-	        	 amplitude_gato = amplitudeMedia;
-	         }
-	         
-	        if(amplitudeMedia<28000 && file.getName().charAt(0)=='c') {
-	         	amplitude_gato = amplitudeMedia;
-    	 }else if (amplitudeMedia<28000 && file.getName().charAt(0)=='d'){
-        	 amplitude_cachorro = amplitudeMedia;
-        	 amplitude_gato = amplitudeMedia;
-         }
-	         
+	         else
+	        	 amplitude_gato = amplitudeMedia; 
+	        	 
+	         caracteristicas[0] = amplitude_cachorro;
+	         caracteristicas[1] = amplitude_gato;
 	          
-	          caracteristicas[0] = amplitude_cachorro;
-	          caracteristicas[1] = amplitude_gato;
-	          
-	          if(file.getName().charAt(0)=='d')
-	          	caracteristicas[2] = 0;
-	          else if(file.getName().charAt(0)=='c')
-	          	caracteristicas[2] = 1;
-	          
-//	          for(int i = 0; i<audioData.length;i++) {
-//	         	 System.out.println("File: " + file.getName() + "- Dados:" + audioData[i]);
-//	          }
+	         if(file.getName().charAt(0)=='d')
+	        	 caracteristicas[2] = 0;
+	         else if(file.getName().charAt(0)=='c')
+	        	 caracteristicas[2] = 1;
 	          
 	         plotGrafico(nX, nY, maxAmp, minAmp, plotData);
 	
@@ -241,6 +238,5 @@ public class ExtraiCaracteristicasSom {
 			e.printStackTrace();
 		}
 	}
-
 }
 
