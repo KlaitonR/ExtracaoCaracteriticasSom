@@ -42,8 +42,8 @@ public class PrincipalController {
 		f = buscaSom();
 		if(f != null) {
 			double[] caracteristicas = ExtraiCaracteristicasSom.extractAmplitudeFromFile(f);
-			carCachorro.setText(String.valueOf(df.format(caracteristicas[0])) + " (amplitude média)");
-			carGato.setText(String.valueOf(df.format(caracteristicas[1])) + " (amplitude média)");
+			carCachorro.setText("Amplitude: " + String.valueOf(df.format(caracteristicas[0])) + "db  - Frequência: " + String.valueOf(df.format(caracteristicas[1])));
+			carGato.setText("Amplitude: " + String.valueOf(df.format(caracteristicas[2])) + "db  - Frequência: " + String.valueOf(df.format(caracteristicas[3])));
 			info.setText(ExtraiCaracteristicasSom.inf);
 			c = caracteristicas;
 		}

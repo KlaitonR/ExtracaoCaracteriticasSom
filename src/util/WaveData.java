@@ -48,7 +48,7 @@ import java.util.Arrays;
 	        		"File format:        " + format + "\n" +
 					"Number of channels: " + noOfChannels_str + "\n" +
 					"Sampling rate:      " + SR + "\n" +
-					"Bit depth:          " + BPS;
+					"Bit depth:          " + BPS + "\n-------------------------------------- \n";
 					
 				
 //	        System.out.println("---------------------------------------------------");

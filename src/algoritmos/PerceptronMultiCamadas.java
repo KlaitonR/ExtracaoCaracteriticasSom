@@ -10,7 +10,7 @@ public class PerceptronMultiCamadas {
 	
 	public static double[] perceptronMultilayerNetwork(double[]caracteristicas) {
 		
-		double[] retorno = {0,0};
+		double[] retorno = {0,0,0,0};
 		
 		try{
 			//Reading training arff or csv file
@@ -33,6 +33,8 @@ public class PerceptronMultiCamadas {
 			novo.setDataset(train);
 			novo.setValue(0, caracteristicas[0]);
 			novo.setValue(1, caracteristicas[1]);
+			novo.setValue(2, caracteristicas[2]);
+			novo.setValue(3, caracteristicas[3]);
 			
 			retorno = network.distributionForInstance(novo);
 			
