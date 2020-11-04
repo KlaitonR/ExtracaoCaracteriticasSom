@@ -32,7 +32,7 @@ public class PrincipalController {
 	public void perceptronMultiCamdas() {
 		
 		double [] pmn = PerceptronMultiCamadas.perceptronMultilayerNetwork(c);
-		classe.setText("Probabilidade de ser Cachorro: "+ df.format(pmn[0]*100) + "%" +
+		classe.setText("Probabilidade de ser cachorro: "+ df.format(pmn[0]*100) + "%" +
 				"  -  Probabilidade de ser gato: "+ df.format(pmn[1]*100) + "%");
 	}
 	
