@@ -49,16 +49,6 @@ import java.util.Arrays;
 					"Number of channels: " + noOfChannels_str + "\n" +
 					"Sampling rate:      " + SR + "\n" +
 					"Bit depth:          " + BPS + "\n-------------------------------------- \n";
-					
-				
-//	        System.out.println("---------------------------------------------------");
-//	        System.out.println("File path:          " + filepath);
-//	        System.out.println("File format:        " + format);
-//	        System.out.println("Number of channels: " + noOfChannels_str);
-//	        System.out.println("Sampling rate:      " + SR);
-//	        System.out.println("Bit depth:          " + BPS);
-//	        System.out.println("---------------------------------------------------");
-
 	        }
 	    }
 

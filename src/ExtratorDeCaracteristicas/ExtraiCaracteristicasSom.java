@@ -100,10 +100,6 @@ public class ExtraiCaracteristicasSom {
 	
 	         //calcular frequência
 	         f_max = i_max * audioTest.getSR()/n;
-	         
-//	         System.out.println("Amplitude máxima: " + maxAmp);
-//	         System.out.println("Amplitude mínima: " + minAmp);
-//	         System.out.println("Frequencia máxima "+ f_max);
 	
 	         //Caracteristicas Amplitude
 	         if(maxAmp >= 100) {

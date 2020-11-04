@@ -58,8 +58,7 @@ public class PrincipalController {
 	private File buscaSom() {
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.getExtensionFilters().add(new 
-				   FileChooser.ExtensionFilter(
-						   "Sons", "*.wav", "*.WAV")); 	
+				   FileChooser.ExtensionFilter("*.wav", "*.WAV")); 	
 		 fileChooser.setInitialDirectory(new File("src/sonsTest"));
 		 File somSelec = fileChooser.showOpenDialog(null);
 		 try {
